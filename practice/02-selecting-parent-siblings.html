@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecting Parent</title>
+    <style>
+        .container{max-width: min(1290px, 96%); margin: 0 auto; width: auto;}
+        .reset{padding: 0; margin: 0; list-style: none;}
+        ul{display: flex; gap: 10px; flex-flow: column wrap;}
+        ul li{color: rebeccapurple; cursor: pointer;}
+        a{text-decoration: none;}
+        .active{color: #e55039;}
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <ul class="reset">
+                <li><a href="#">Apple</a></li>
+                <li><a href="#">Mango</a></li>
+                <li><a href="#">Banana</a></li>
+                <li><a href="#">Grapes</a></li>
+                <li><a href="#">Orange</a></li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('ul li a').first().addClass('active');
+
+            $('ul li a').on("click", function(){
+                $(this).addClass('active').parent().siblings().children().removeClass('active');
+            });
+        });
+    </script>
+</body>
+</html>
